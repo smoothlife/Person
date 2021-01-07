@@ -9,23 +9,42 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body>
-		<button type="button" id="btn-update" data-seq="${dto.seq}" data-message>수정</button>
-		<button type="button" id="btn-delete">삭제</button>
+<c:forEach var="dto" items="${list}">
+		<button type="button" id="btn-update-${dto.seq}">수정</button>
+		<button type="button" id="btn-delete-${dto.seq}">삭제</button>
+</c:forEach>
 
 	<script>
-		$("#btn-update").on("click", function() {
+	<c:forEach var="dto" items="${list}">
+		$("#btn-update-${dto.seq}").on("click", function() {
 			$.ajax({
 				data : {
-	    			seq: $("#btn-update").data("seq"),
-	    			message: $("#btn-update").data("message")
+	    			seq: ${dto.seq},
+	    			message: ${dto.message}
 	    		},
 				type : "post",
 				url : "/person/update.person", 
 				success: function(data){
-					console.log("성공");
+					console.log("data : " + data);
+					console.log("수정성공");
 				}
 			})
 		})
+		
+		$("#btn-delete-${dto.seq}").on("click", function() {
+			$.ajax({
+				data : {
+	    			seq: ${dto.seq},
+	    		},
+				type : "post",
+				url : "/person/delete.person", 
+				success: function(data){
+					console.log("data : " + data);
+					console.log("삭제성공");
+				}
+			})
+		})
+	</c:forEach>	
 	</script>
 </body>
 </html>

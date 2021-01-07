@@ -10,16 +10,25 @@ import kh.eclass.service.PersonService;
 @Controller
 @RequestMapping("/person")
 public class PersonController {
-	
 
 	@Autowired
 	private PersonService service;
-	
+
 	@ResponseBody
 	@RequestMapping("update.person")
 	public String update(PersonDTO dto) {
 		int result = service.update(dto);
-		return "";	
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", result);
+		return new Gson().toJson(obj);
 	}
-	
+
+	@ResponseBody
+	@RequestMapping("delete.person")
+	public String update(int seq) {
+		int result = service.delete(seq);
+		JsonObject obj = new JsonObject();
+		obj.addProperty("result", result);
+		return new Gson().toJson(obj);
+	}
 }
