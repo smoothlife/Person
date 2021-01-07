@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import kh.eclass.dao.PersonDAO;
 import kh.eclass.dto.PersonDTO;
 
-
 @Service
 public class PersonService {
 	
 	@Autowired
-	private PersonDAO dao;
+	private PersonDAO dao; 
+
 	public int input(PersonDTO dto) {
 		return dao.insert(dto);
 	}
@@ -22,4 +22,12 @@ public class PersonService {
 	public List<PersonDTO> selectAll(){
 		return dao.selectAll();
 	}
+	public int update(PersonDTO dto) {
+		return dao.update(dto);
+	}
+	
+	public int delete(int seq) {
+		return dao.delete(seq);
+	}
+
 }
