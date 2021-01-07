@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Person">
+	<insert id="insert">
+		insert into person values(person_seq.nextval,#{name},#{message})
+	</insert>
+	<select id="selectAll" resultType="kh.eclass.dto.PersonDTO">
+		select * from person
+	</select>
+	<update id="update">
+		update person set message=#{message} where seq=#{seq}
+	</update>
+	<delete id="delete">
+		delete from person where seq=#{seq}
+	</delete>
+</mapper>
