@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import kh.eclass.dto.PersonDTO;
 import kh.eclass.service.PersonService;
 
 @Controller
-@RequestMapping("/person")
 public class PersonController {
 
 	@Autowired

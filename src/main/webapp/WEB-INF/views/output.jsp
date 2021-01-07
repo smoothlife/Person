@@ -9,9 +9,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 <body>
-<c:forEach var="dto" items="${list}">
-		<button type="button" id="btn-update-${dto.seq}">수정</button>
-		<button type="button" id="btn-delete-${dto.seq}">삭제</button>
+<c:forEach var="i" items="${list}">
+		<button type="button" id="btn-update-${i.seq}">수정</button>
+		<button type="button" id="btn-delete-${i.seq}">삭제</button>
 </c:forEach>
 
 	<script>
@@ -23,7 +23,7 @@
 	    			message: ${dto.message}
 	    		},
 				type : "post",
-				url : "/person/update.person", 
+				url : "update.person", 
 				success: function(data){
 					console.log("data : " + data);
 					console.log("수정성공");
@@ -37,7 +37,7 @@
 	    			seq: ${dto.seq},
 	    		},
 				type : "post",
-				url : "/person/delete.person", 
+				url : "delete.person", 
 				success: function(data){
 					console.log("data : " + data);
 					console.log("삭제성공");
