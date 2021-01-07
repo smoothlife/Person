@@ -37,7 +37,7 @@ tr:nth-child(even) {
   	 <tr>
 	    <td>${i.seq}</td>
 	    <td>${i.name}</td>
-	    <td>${i.msg}</td>
+	    <td>${i.message}</td>
   	</tr>
   </c:forEach>
 </table>

@@ -19,6 +19,7 @@
     <form action="input.person" class=box>
         Name : <input type=text name=name>
         Message : <textarea name=message></textarea>
+        <button>전송</button>
     </form>
 </div>
 </body>
